@@ -1,0 +1,550 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.1ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateLeads (20100514192013)
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE TABLE "leads" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "phone" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100514192013')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("leads")[0m
+  [4;36;1mLead Create (0.5ms)[0m   [0;1mINSERT INTO "leads" ("name", "created_at", "updated_at", "phone", "email") VALUES('Johnny Lead', '2010-05-14 19:27:47', '2010-05-14 19:27:47', NULL, NULL)[0m
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 15:28:52) [GET]
+  [4;36;1mLead Load (0.8ms)[0m   [0;1mSELECT * FROM "leads" [0m
+
+NoMethodError (undefined method `responds_to' for #<LeadsController:0x1035e8338>):
+  app/controllers/leads_controller.rb:5:in `index'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (54.0ms)
+Rendered rescues/_request_and_response (2.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 15:28:56) [GET]
+
+ActionController::RoutingError (No route matches "/leads.json" with {:method=>:get}):
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 15:30:15) [GET]
+  [4;36;1mLead Load (0.8ms)[0m   [0;1mSELECT * FROM "leads" [0m
+
+NoMethodError (undefined method `responds_to' for #<LeadsController:0x103552a68>):
+  app/controllers/leads_controller.rb:5:in `index'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (53.3ms)
+Rendered rescues/_request_and_response (2.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 15:31:10) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+
+NoMethodError (undefined method `responds_to' for #<LeadsController:0x10339e6e0>):
+  app/controllers/leads_controller.rb:5:in `index'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (123.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 15:31:57) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+
+ActionView::MissingTemplate (Missing template leads/[{"lead":{"name":"Johnny Lead","created_at":"2010-05-14T19:27:47Z","updated_at":"2010-05-14T19:27:47Z","id":1,"phone":null,"email":null}}].erb in view path app/views):
+  app/controllers/leads_controller.rb:6:in `index'
+  app/controllers/leads_controller.rb:5:in `index'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 15:33:02) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+
+ActionView::MissingTemplate (Missing template leads/[{"lead":{"name":"Johnny Lead","created_at":"2010-05-14T19:27:47Z","updated_at":"2010-05-14T19:27:47Z","id":1,"phone":null,"email":null}}].erb in view path app/views):
+  app/controllers/leads_controller.rb:6:in `index'
+  app/controllers/leads_controller.rb:5:in `index'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:21:05) [GET]
+  [4;36;1mLead Load (0.8ms)[0m   [0;1mSELECT * FROM "leads" [0m
+
+ActionView::MissingTemplate (Missing template leads/[{"lead":{"name":"Johnny Lead","created_at":"2010-05-14T19:27:47Z","updated_at":"2010-05-14T19:27:47Z","id":1,"phone":null,"email":null}}].erb in view path app/views):
+  app/controllers/leads_controller.rb:6:in `index'
+  app/controllers/leads_controller.rb:5:in `index'
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:21:39) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 35ms (View: 25, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 16:21:43) [GET]
+
+ActionController::RoutingError (No route matches "/application.manifest" with {:method=>:get}):
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:21:48) [GET]
+  [4;36;1mLead Load (0.7ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 13ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 16:21:52) [GET]
+
+ActionController::RoutingError (No route matches "/application.manifest" with {:method=>:get}):
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:22:17) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 16:22:18) [GET]
+
+ActionController::RoutingError (No route matches "/application.manifest" with {:method=>:get}):
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:23:28) [GET]
+  [4;36;1mLead Load (0.9ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 35ms (View: 25, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 16:23:29) [GET]
+
+ActionController::RoutingError (No route matches "/application.manifest" with {:method=>:get}):
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:25:10) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 13ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 16:25:11) [GET]
+
+ActionController::RoutingError (No route matches "/application.manifest" with {:method=>:get}):
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:26:44) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 13ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 16:26:45) [GET]
+
+ActionController::RoutingError (No route matches "/application.manifest" with {:method=>:get}):
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:28:20) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-05-14 16:28:20) [GET]
+
+ActionController::RoutingError (No route matches "/application.manifest" with {:method=>:get}):
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:41:31) [GET]
+  [4;36;1mLead Load (0.8ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 39ms (View: 28, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:41:32) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+
+ActionView::MissingTemplate (Missing template leads/[{"lead":{"name":"Johnny Lead","created_at":"2010-05-14T19:27:47Z","updated_at":"2010-05-14T19:27:47Z","id":1,"phone":null,"email":null}}].erb in view path app/views):
+  app/controllers/leads_controller.rb:7:in `index'
+  app/controllers/leads_controller.rb:5:in `index'
+  haml (3.0.3) rails/./lib/sass/plugin/rack.rb:41:in `call'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/local/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/local/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:42:39) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:42:40) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:43:21) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:43:21) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:43:34) [GET]
+  [4;36;1mLead Load (0.7ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:43:34) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 15ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:43:55) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:43:56) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 15ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:44:00) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:44:01) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:47:54) [GET]
+  [4;36;1mLead Load (0.8ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 39ms (View: 28, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:47:55) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 119ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:56:25) [GET]
+  [4;36;1mLead Load (0.9ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 39ms (View: 28, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:56:25) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 239ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 16:59:47) [GET]
+  [4;36;1mLead Load (0.9ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 39ms (View: 28, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 16:59:48) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 120ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 17:01:51) [GET]
+  [4;36;1mLead Load (0.8ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 39ms (View: 29, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 17:01:52) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 120ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 17:09:05) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 13ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 17:09:05) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 15ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 17:09:41) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 13ms (View: 3, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 17:09:42) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 17:10:08) [GET]
+  [4;36;1mLead Load (0.7ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 13ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 17:10:08) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 17:10:29) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 13ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 17:10:30) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 17:12:31) [GET]
+  [4;36;1mLead Load (0.6ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 12ms (View: 2, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 17:12:32) [GET]
+  [4;35;1mLead Load (0.7ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 16ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]
+
+
+Processing LeadsController#index (for 127.0.0.1 at 2010-05-14 17:15:03) [GET]
+  [4;36;1mLead Load (0.9ms)[0m   [0;1mSELECT * FROM "leads" [0m
+Rendering template within layouts/application
+Rendering leads/index
+Completed in 38ms (View: 27, DB: 1) | 200 OK [http://localhost/leads]
+
+
+Processing LeadsController#index to json (for 127.0.0.1 at 2010-05-14 17:15:03) [GET]
+  [4;35;1mLead Load (0.6ms)[0m   [0mSELECT * FROM "leads" [0m
+Completed in 119ms (View: 1, DB: 1) | 200 OK [http://localhost/leads.json]

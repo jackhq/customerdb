@@ -1,0 +1,31 @@
+!!! 5
+%html{:manifest => '/application.manifest'}
+  %head
+    %title Customer DB
+  %body
+    = yield
+    
+    %script{:src => '/javascripts/json2.js'}
+
+    %script{:src => '/javascripts/jquery-1.4.2.min.js', :type => 'text/javascript'}
+    / Set Global Var
+    %script{:src => '/javascripts/init.js'}
+    / Load Framework
+    %script{:src => '/javascripts/chester.js'}
+  
+    / Load Models
+    - Dir.glob('public/javascripts/models/*.js').each do |js|
+      %script{:src => js.gsub('public','')}
+    / Load Controllers
+    - Dir.glob('public/javascripts/controllers/*.js').each do |js|
+      %script{:src => js.gsub('public','')}    
+    / Load Helpers
+    - Dir.glob('public/javascripts/helpers/*.js').each do |js|
+      %script{:src => js.gsub('public','')}
+    / Load Views
+    - Dir.glob('public/javascripts/views/**/*.js').each do |js|
+      %script{:src => js.gsub('public','')}
+    
+  
+    / Start Application
+    %script{:src => '/javascripts/application.js'}

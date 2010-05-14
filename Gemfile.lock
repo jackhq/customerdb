@@ -1,0 +1,47 @@
+--- 
+dependencies: 
+  rails: 
+    group: 
+    - :default
+    version: ~> 2.3.5
+  sqlite3-ruby: 
+    group: 
+    - :default
+    version: ">= 0"
+    require: 
+    - sqlite3
+  haml: 
+    group: 
+    - :default
+    version: ">= 0"
+  sinatra: 
+    group: 
+    - :default
+    version: ">= 0"
+specs: 
+- rake: 
+    version: 0.8.7
+- activesupport: 
+    version: 2.3.5
+- rack: 
+    version: 1.0.1
+- actionpack: 
+    version: 2.3.5
+- actionmailer: 
+    version: 2.3.5
+- activerecord: 
+    version: 2.3.5
+- activeresource: 
+    version: 2.3.5
+- haml: 
+    version: 3.0.3
+- rails: 
+    version: 2.3.5
+- sinatra: 
+    version: "1.0"
+- sqlite3-ruby: 
+    version: 1.2.5
+hash: 98ac746c969541f332296056790aaf5c493a5751
+sources: 
+- Rubygems: 
+    uri: http://gemcutter.org
